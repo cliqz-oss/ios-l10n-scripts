@@ -6,16 +6,17 @@ if [ ! -d Client.xcodeproj ]; then
 fi
 
 ignore_errors=false
+# Cliqz: removed command line parameter checks because `--release` does not work
 # Check command line parameters
-while [[ $# -gt 0 ]]
-do
-    case $1 in
-        --ignore-errors)
-            ignore_errors=true
-        ;;
-    esac
-    shift
-done
+# while [[ $# -gt 0 ]]
+# do
+#     case $1 in
+#         --ignore-errors)
+#             ignore_errors=true
+#         ;;
+#     esac
+#     shift
+# done
 
 SDK_PATH=`xcrun --show-sdk-path`
 
