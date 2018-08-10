@@ -172,6 +172,12 @@ def main():
             if file_node.get('target-language'):
                 file_node.set('target-language', locale_code)
 
+        # Cliqz: Update source-language & target-language
+        for file_node in reference_root.xpath('//x:file', namespaces=NS):
+            file_node.set('source-language', "en-US")
+            if locale_code != "en":
+                file_node.set('target-language', locale_code)
+
         # Replace the existing locale file with the new XML content
         with open(file_path, 'w') as fp:
             # Fix indentations
