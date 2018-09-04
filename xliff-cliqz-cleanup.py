@@ -43,8 +43,10 @@ def indent(elem, level=0):
 
 files_to_keep = [
     'Client/en.lproj/InfoPlist.strings',
-    'Cliqz/Resources/en.lproj/Cliqz.stringsdict',
-    'Cliqz/Resources/en.lproj/Cliqz.strings'
+    'Client/en.lproj/Cliqz.strings',
+    'Extensions/ShareTo/en.lproj/Cliqz.strings',
+    'Extensions/Today/en.lproj/Cliqz.strings',
+    'Cliqz/Resources/en.lproj/Cliqz.stringsdict'
 ]
 
 required_ids = [
