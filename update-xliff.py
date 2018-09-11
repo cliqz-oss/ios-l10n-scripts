@@ -174,7 +174,7 @@ def main():
 
         # Cliqz: Update source-language & target-language
         for file_node in reference_root.xpath('//x:file', namespaces=NS):
-            file_node.set('source-language', "en-US")
+            file_node.set('source-language', "en_US")
             if locale_code != "en":
                 file_node.set('target-language', locale_code)
 
