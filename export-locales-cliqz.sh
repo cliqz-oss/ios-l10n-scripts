@@ -75,13 +75,13 @@ fi
 git clone https://github.com/cliqz-oss/${l10n_repo} || exit 1
 
 # Export English base to /tmp/en.xliff
-rm -f /tmp/en.xliff || exit 1
+rm -rf /tmp/en.xcloc || exit 1
 echo "Exporting en-US with xcodebuild"
 xcodebuild -exportLocalizations -localizationPath /tmp -project ${xcodeproj} -exportLanguage en || exit 1
 
-if [ ! -f /tmp/en.xliff ]
+if [ ! -f /tmp/en.xcloc/Localized\ Contents/en.xliff ]
 then
-  echo "Export failed. No /tmp/en.xliff generated."
+  echo "Export failed. No /tmp/en.xcloc generated."
   exit 1
 fi
 
@@ -92,7 +92,7 @@ git branch ${branch_name}
 git checkout ${branch_name}
 
 # Copy the English XLIFF file into the repository and commit
-cp /tmp/en.xliff en-US/${l10n_file} || exit 1
+cp /tmp/en.xcloc/Localized\ Contents/en.xliff en-US/${l10n_file} || exit 1
 
 # cleanup English locale
 ${SCRIPTS}/xliff-cliqz-cleanup.py ../${l10n_repo}/en-US/*.xliff || exit 1
