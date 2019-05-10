@@ -94,6 +94,9 @@ git checkout ${branch_name}
 # Copy the English XLIFF file into the repository and commit
 cp /tmp/en.xcloc/Localized\ Contents/en.xliff en-US/${l10n_file} || exit 1
 
+sed -i ""  "s/source-language=\"en\">/source-language=\"en\" target-language=\"en\">/g" en-US/${l10n_file}
+
+
 # cleanup English locale
 ${SCRIPTS}/xliff-cliqz-cleanup.py ../${l10n_repo}/en-US/*.xliff || exit 1
 
